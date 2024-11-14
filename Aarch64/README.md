@@ -6,6 +6,7 @@ para compilar:
 
   ./nomeDoArquivo
 
+
 compilador:
 
   gcc
