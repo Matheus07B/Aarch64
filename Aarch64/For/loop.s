@@ -5,7 +5,7 @@
   .global _start
 
 _start:
-    mov x7, #0xA       // numero de vezes a se repitir o loop
+    mov x7, #0xA       // numero de vezes a se repitir o loop, 0xA = 10 em hexadecimal.
 
     //movk x7, #0xF4, lsl 16 // Carrega 0xF4 na segunda parte de x7
     //movk x7, #0x240
