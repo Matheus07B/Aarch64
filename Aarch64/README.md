@@ -6,6 +6,10 @@
   
   ./nomeDoArquivo
 
+# Para usar o compile.sh
+
+  chmod +x compile.sh
+
 # compilador:
   
   gcc
