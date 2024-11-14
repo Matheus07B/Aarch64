@@ -1,0 +1,40 @@
+.section .data
+  print: .asciz "Fale uma coisa: "
+    lenght = . - print
+
+  read: .asciz
+
+  rest: .asciz "O resultado é: "
+    restLen = . - rest
+
+.section .text
+  .global _start
+
+_start:
+  mov x0, #1
+  ldr x1, =print
+  ldr x2, =lenght
+  mov x8, 64
+  svc 0
+
+  mov x0, #0
+  ldr x1, =read
+  ldr x2, 10
+  mov x8, 63
+  svc 0
+
+  mov x0, #1
+  ldr x1, =rest
+  ldr x2, =restLen
+  mov x8, 64
+  svc 0
+
+  mov x0, #1
+  ldr x1, =rest
+  ldr x2, =rLen
+  mov x8, 64
+  svc 0
+
+  mov x0, 0
+  mov x8, 93
+  svc 0
