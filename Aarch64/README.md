@@ -1,12 +1,9 @@
-para compilar: 
+# para compilar: 
 
-  as -o nomeDoArquivo.o nomeDoArquivo.s
+ • as -o nomeDoArquivo.o nomeDoArquivo.s
+ • ld -o nomeDoArquivo nomeDoArquivo.o
+ •./nomeDoArquivo
 
-  ld -o nomeDoArquivo nomeDoArquivo.o
-
-  ./nomeDoArquivo
-
-
-compilador:
-
+# compilador:
+  
   gcc
