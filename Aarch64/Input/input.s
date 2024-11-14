@@ -1,3 +1,5 @@
+.global _start
+
 .section .data
   print: .asciz "\nFale uma coisa: "
     lenght = . - print
@@ -10,7 +12,6 @@
   newL: .asciz "\n"
 
 .section .text
-  .global _start
 
 _start:
   mov x0, #1
