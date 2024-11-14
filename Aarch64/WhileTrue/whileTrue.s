@@ -31,3 +31,4 @@ exit:
   mov x8, 93
   svc 0
   ret
+  // ret não necessário pois depois da chamada do sistema o código automaticamente encerra.
