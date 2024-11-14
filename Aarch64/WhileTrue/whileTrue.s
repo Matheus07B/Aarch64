@@ -6,6 +6,8 @@
 
 _start:
   mov x7, 0             // move um valor para x7 64 bits, obs: se tirar o codigo comeca a bugar
+  // Começa a bugar pois ele printa as mensagens muito rapido.
+  // Mas no geral nao é necessário.
 
 loop:
   bl print              // chama a funcao de printar
