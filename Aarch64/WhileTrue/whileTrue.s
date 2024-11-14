@@ -1,23 +1,21 @@
+.global _start
+
 .section .data
   mensagem: .asciz "loop infinito" // 14 \n, 13 sem
 
 .section .text
-  .global _start
 
 _start:
-  mov x7, 0             // move um valor para x7 64 bits, obs: se tirar o codigo comeca a bugar
+  mov x7, 0             
+  // move um valor para x7 64 bits, OBS: se tirar o codigo comeca a bugar.
   // Começa a bugar pois ele printa as mensagens muito rapido.
-  // Mas no geral nao é necessário.
+  // Mas no geral não é necessário.
 
 loop:
-  bl print              // chama a funcao de printar
+  bl print              // Chama a funcao de printar.
+  bl loop               // Chama o loop denovo, entao vai da linha 16 para a 14 infinitamente.
 
-  // add x7, x7, 1      // add ou sub
-  // cmp x7, #10        // comparador, no caso x7 é = 10
-
-  bl loop               // bne para loop finito, bl pata infinito
-
-// Funcao para printar a mensagem
+// Funcao para printar a mensagem.
 print:
   mov x0, 1
   ldr x1, =mensagem
@@ -27,6 +25,7 @@ print:
   ret
 
 // Somente necessário em loops finitos
+// No caso essa função nunca é chamada pois não tem um "Break" nesse loop.
 exit:
   mov x0, 0
   mov x8, 93
