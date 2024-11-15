@@ -1,4 +1,4 @@
-para compilar: 
+# para compilar: 
 
   as -o nomeDoArquivo.o nomeDoArquivo.s
 
@@ -6,6 +6,7 @@ para compilar:
 
   ./nomeDoArquivo
 
-compilador:
+
+# compilador:
 
   gcc
