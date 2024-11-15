@@ -1,0 +1,6 @@
+
+ print      [✓]
+ input      [✓]
+ whileTrue  [✓]
+ for        [✓]
+

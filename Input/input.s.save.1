@@ -1,5 +1,10 @@
 .global _start
 
+// Definindo constantes para syscalls
+.equ SYS_write, 64
+.equ SYS_read, 63
+.equ SYS_exit, 93
+
 .section .data
   print: .asciz "\nFale uma coisa: "
     lenght = . - print
@@ -17,13 +22,13 @@ _start:
   mov x0, #1
   ldr x1, =print
   ldr x2, =lenght
-  mov x8, 64
+  mov x8, =SYS_write
   svc 0
 
   mov x0, #0
   ldr x1, =read
   mov x2, #32
-  mov x8, 63
+  mov x8, =SYS_read
   svc 0
 
   mov x0, #1
@@ -35,7 +40,7 @@ _start:
   mov x0, #1
   ldr x1, =read
   mov x2, #32
-  mov x8, 64
+  mov x8, =
   svc 0
 
   mov x0, #1

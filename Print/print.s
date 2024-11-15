@@ -1,10 +1,9 @@
-.global _start
-
 .section .data
   print: .asciz "Hello, world!\n"
   len = . - print
 
 .section .text
+  .global _start
 
 _start:
    mov x0, 1
