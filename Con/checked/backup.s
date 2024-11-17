@@ -1,7 +1,7 @@
 .global _start
 
 .data
-  minha_string: .ascii "6732"  // String a ser convertida (incluindo o terminador nulo)
+  minha_string: .ascii "1226"  // String a ser convertida (incluindo o terminador nulo)
 
   buffer: .space 20  // Buffer para armazenar o número convertido em string (máximo de 20 caracteres)
   buffer_Len = . - buffer

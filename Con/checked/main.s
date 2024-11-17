@@ -1,7 +1,7 @@
 .global _start
 
 .data
-  minha_string: .ascii "6732"  // String a ser convertida (incluindo o terminador nulo)
+  minha_string: .ascii "12266791"  // Final \0
 
   buffer: .space 20  // Buffer para armazenar o número convertido em string (máximo de 20 caracteres)
   buffer_Len = . - buffer
@@ -28,7 +28,7 @@ loop:
   // Verifica se é um dígito (ASCII '0' é 48)
   cmp w2, #'0'
   blt fim_loop
-  cmp w2, #'9'  // 9 em asciz é 57
+  cmp w2, #'9'
   bgt fim_loop
 
   // Converte o dígito para numérico e adiciona ao acumulador
@@ -61,8 +61,8 @@ convert_to_string:
 
 print_number:
   mov x0, 1          // Descritor de arquivo para stdout
-  sub x1, x2, buffer // Calcula o número de caracteres armazenados no buffer
-  ldr x2, =buffer_Len    // Aponta para o início do buffer
+  sub x1, x2, buffer // Calcula o tamanho da string
+  ldr x2, =buffer_Len
   mov x8, #64        // Syscall write
   svc 0
 

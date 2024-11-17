@@ -1,13 +1,8 @@
 .global _start
 
 .data
-  minha_string: .ascii "6732"  // String a ser convertida (incluindo o terminador nulo)
-
+  minha_string: .ascii "6791\0"
   buffer: .space 20  // Buffer para armazenar o número convertido em string (máximo de 20 caracteres)
-  buffer_Len = . - buffer
-
-  newLine: .asciz "\n"
-  newLine_Len = . - newLine
 
 .text
 
@@ -28,7 +23,7 @@ loop:
   // Verifica se é um dígito (ASCII '0' é 48)
   cmp w2, #'0'
   blt fim_loop
-  cmp w2, #'9'  // 9 em asciz é 57
+  cmp w2, #'9'
   bgt fim_loop
 
   // Converte o dígito para numérico e adiciona ao acumulador
@@ -49,7 +44,7 @@ fim_loop:
   // x1 contém o valor inteiro; agora convertemos para string
   ldr x2, =buffer   // Aponta para o buffer
   mov x3, #10       // Divisor (10)
-
+  
 convert_to_string:
   udiv w4, w1, w3   // Divide x1 por 10, resultado em w4
   msub w5, w4, w3, w1 // Calcula o resto: w5 = w1 - (w4 * w3)
@@ -60,17 +55,10 @@ convert_to_string:
   b convert_to_string
 
 print_number:
-  mov x0, 1          // Descritor de arquivo para stdout
-  sub x1, x2, buffer // Calcula o número de caracteres armazenados no buffer
-  ldr x2, =buffer_Len    // Aponta para o início do buffer
+  mov x0, 1         // Descritor de arquivo para stdout
+  sub x1, x2, buffer // Calcula o tamanho da string
+  ldr x2, =buffer    // Aponta para o início do buffer
   mov x8, #64        // Syscall write
-  svc 0
-
-space:
-  mov x0, #1
-  ldr x1, =newLine
-  ldr x2, =newLine_Len
-  mov x8, #64
   svc 0
 
 exit:
