@@ -1,7 +1,7 @@
 .global _start
 
 .data
-  minha_string: .ascii "6732"  // String a ser convertida (incluindo o terminador nulo)
+  minha_string: .ascii "12"  // String a ser convertida (sem o terminador nulo \0 pois da bug na hora de converter, o bug adiciona o primeiro valor da sequencia de forma repetida ex: 66732 )
 
   buffer: .space 20  // Buffer para armazenar o número convertido em string (máximo de 20 caracteres)
   buffer_Len = . - buffer
@@ -51,20 +51,20 @@ fim_loop:
   mov x3, #10       // Divisor (10)
 
 convert_to_string:
-  udiv w4, w1, w3   // Divide x1 por 10, resultado em w4
-  msub w5, w4, w3, w1 // Calcula o resto: w5 = w1 - (w4 * w3)
-  add w5, w5, #'0'  // Converte o dígito restante para ASCII
-  strb w5, [x2, #-1]! // Armazena o caractere no buffer (em ordem reversa)
-  mov w1, w4        // Atualiza x1 para o quociente
+  udiv w4, w1, w3      // Divide x1 por 10, resultado em w4
+  msub w5, w4, w3, w1  // Calcula o resto: w5 = w1 - (w4 * w3)
+  add w5, w5, #'0'     // Converte o dígito restante para ASCII
+  strb w5, [x2, #-1]!  // Armazena o caractere no buffer (em ordem reversa)
+  mov w1, w4           // Atualiza x1 para o quociente
   cbz w1, print_number // Se x1 == 0, termina a conversão
   b convert_to_string
 
 print_number:
-  mov x0, 1          // Descritor de arquivo para stdout
-  sub x1, x2, buffer // Calcula o número de caracteres armazenados no buffer
-  ldr x2, =buffer_Len    // Aponta para o início do buffer
-  mov x8, #64        // Syscall write
-  svc 0
+  mov x0, 1            // Descritor de arquivo para stdout
+  sub x1, x2, buffer   // Calcula o número de caracteres armazenados no buffer
+  ldr x2, =buffer_Len  // Aponta para o início do buffer
+  mov x8, #64          // Syscall write
+  svc 0		       // chamada do sistema
 
 space:
   mov x0, #1
