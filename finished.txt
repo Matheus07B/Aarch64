@@ -4,4 +4,4 @@
  whileTrue  [✓]
  for        [✓]
  soma       [ ]
- conversao  [ ]
+ conversão  [ ]
