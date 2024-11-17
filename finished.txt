@@ -4,5 +4,5 @@
  whileTrue  [✓]
  for        [✓]
  soma       [ ]
- conversão  [ ]
+ conversão  [✓]
 
