@@ -1,17 +1,30 @@
-# Intuito do repositório
+# Intuito do Repositório
 
-   Esse repositório foi criado para fins de estudos e uma vasta coleção de progamas
-  escritos em Assembly na arquitetura Aarch64.
+Este repositório foi criado com o objetivo de fornecer uma coleção de programas escritos em Assembly para a arquitetura AArch64, como parte de estudos e aprendizado sobre a linguagem de baixo nível e a arquitetura ARM.
 
-# para compilar: 
+## Como Compilar
 
-  as -o nomeDoArquivo.o nomeDoArquivo.s / -g: Opicional.
+Para compilar os programas, siga os seguintes passos:
 
-  ld -o nomeDoArquivo nomeDoArquivo.o
+1. **Assembler**: 
+   - Utilize o comando `as` para montar o código Assembly:
+     ```
+     as -o nomeDoArquivo.o nomeDoArquivo.s
+     ```
+     - A opção `-g` é opcional e pode ser usada para incluir informações de depuração.
 
-  ./nomeDoArquivo
+2. **Linker**:
+   - Após a montagem, use o comando `ld` para gerar o executável:
+     ```
+     ld -o nomeDoArquivo nomeDoArquivo.o
+     ```
 
+3. **Executar**:
+   - Para rodar o programa, basta usar:
+     ```
+     ./nomeDoArquivo
+     ```
 
-# compilador:
+## Compilador
 
-  gcc
+Este repositório utiliza o compilador `gcc` para compilar o código.
