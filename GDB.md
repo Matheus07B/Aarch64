@@ -1,4 +1,4 @@
-1. Compilação
+# 1. Compilação
 
 Compile o código Assembly com informações de depuração (-g) e gere o arquivo objeto:
 
@@ -11,7 +11,7 @@ ld -o executavel arquivo.o
 
 ---
 
-2. Iniciar o GDB
+# 2. Iniciar o GDB
 
 Abra o executável no GDB:
 
@@ -20,7 +20,7 @@ gdb executavel
 
 ---
 
-3. Ponto de Partida no GDB
+# 3. Ponto de Partida no GDB
 
 Dentro do GDB, inicie a depuração:
 
@@ -39,7 +39,7 @@ start
 
 ---
 
-4. Depuração Passo a Passo
+# 4. Depuração Passo a Passo
 
 Entrar no layout Assembly (visualização das instruções):
 
@@ -68,7 +68,7 @@ x/x endereço
 
 ---
 
-5. Inspeção de Memória
+# 5. Inspeção de Memória
 
 Examinar conteúdo da memória a partir de um endereço (em bytes, palavras ou strings):
 
@@ -86,7 +86,7 @@ Para mais bytes, substitua x por o número de entradas, como x/10x endereço.
 
 ---
 
-6. Ver o Fluxo do Código
+# 6. Ver o Fluxo do Código
 
 Mostrar próximas instruções:
 
@@ -99,7 +99,7 @@ layout asm
 
 ---
 
-7. Controle do Fluxo
+# 7. Controle do Fluxo
 
 Continuar até o próximo ponto de parada ou syscall:
 
