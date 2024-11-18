@@ -1,5 +1,3 @@
----
-
 1. Compilação
 
 Compile o código Assembly com informações de depuração (-g) e gere o arquivo objeto:
