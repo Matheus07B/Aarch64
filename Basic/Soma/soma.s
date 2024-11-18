@@ -1,8 +1,8 @@
 .global _start
 
 .section .data
-result_msg:    .asciz "O resultado da soma é: "
-newline:       .asciz "\n"
+  result_msg: .asciz "O resultado da soma é:"
+  newline: .asciz "\n"
 
 .section .text
 _start:

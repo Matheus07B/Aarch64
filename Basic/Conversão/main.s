@@ -1,7 +1,7 @@
 .global _start
 
 .data
-  minha_string: .ascii "12"  // String a ser convertida (sem o terminador nulo \0 pois da bug na hora de converter, o bug adiciona o primeiro valor da sequencia de forma repetida ex: 66732 )
+  minha_string: .ascii "1002"  // String a ser convertida (sem o terminador nulo \0 pois da bug na hora de converter, o bug adiciona o primeiro valor da sequencia de forma repetida ex: 66732 )
 
   buffer: .space 20  // Buffer para armazenar o número convertido em string (máximo de 20 caracteres)
   buffer_Len = . - buffer

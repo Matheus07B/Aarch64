@@ -5,7 +5,7 @@
 
 # para compilar: 
 
-  as -o nomeDoArquivo.o nomeDoArquivo.s
+  as -o nomeDoArquivo.o nomeDoArquivo.s / -g: Opicional.
 
   ld -o nomeDoArquivo nomeDoArquivo.o
 
