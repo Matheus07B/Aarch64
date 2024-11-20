@@ -1,2 +1,2 @@
-as -o input.o input.s && ld -o input input.o
-./input
+as -o main.o main.s && ld -o Input main.o
+./Input

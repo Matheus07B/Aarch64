@@ -1,3 +1,3 @@
-as -o whileTrue.o whileTrue.s
-ld -o whileTrue whileTrue.o
+as -o main.o main.s
+ld -o whileTrue main.o
 ./whileTrue

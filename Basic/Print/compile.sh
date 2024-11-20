@@ -1,3 +1,3 @@
-as -g -o print.o print.s
-ld -o print print.o
-./print
+as -o main.o main.s
+ld -o Print main.o
+./Print

@@ -1,3 +1,3 @@
-as -o loop.o loop.s
-ld -o loop loop.o
-./loop
+as -o main.o main.s
+ld -o For main.o
+./For

@@ -1,3 +1,3 @@
-as -o soma.o soma.s
-ld -o soma soma.o
-./soma
+as -o main.o main.s
+ld -o Soma main.o
+./Soma

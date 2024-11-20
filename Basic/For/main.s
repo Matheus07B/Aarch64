@@ -35,5 +35,5 @@ exit:
     mov x0, #0       //
     mov x8, #93      // sys_exit, codigo de saida 93
     svc 0            // chamada do sistema
-    ret
+    // ret           // Não precisa pois o progama encerra na chamada do sistema
 

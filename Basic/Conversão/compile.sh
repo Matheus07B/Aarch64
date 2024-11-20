@@ -1,3 +1,3 @@
-as -g -o main.o main.s
-ld -o out main.o
-./out
+as -o main.o main.s
+ld -o Conversao main.o
+./Conversao
