@@ -1,7 +1,7 @@
 .global _start
 
 .data
-  minha_string: .ascii "1002"  // String a ser convertida (sem o terminador nulo \0 pois da bug na hora de converter, o bug adiciona o primeiro valor da sequencia de forma repetida ex: 66732 )
+  minha_string: .ascii "110"   // String a ser convertida (sem o terminador nulo \0 pois da bug na hora de converter, o bug adiciona o primeiro valor da sequencia de forma repetida ex: 66732 )
 
   buffer: .space 20  // Buffer para armazenar o número convertido em string (máximo de 20 caracteres)
   buffer_Len = . - buffer
@@ -12,6 +12,7 @@
 .text
 
 _start:
+
   // Carrega o endereço da string em um registrador
   ldr x0, =minha_string
 
@@ -21,6 +22,7 @@ _start:
 loop:
   // Carrega o caractere atual
   ldrb w2, [x0]  // Use ldrb para carregar apenas 1 byte
+
   // Verifica se é o fim da string (nulo)
   cmp w2, #0
   beq fim_loop
@@ -60,7 +62,7 @@ convert_to_string:
   b convert_to_string
 
 print_number:
-  mov x0, 1            // Descritor de arquivo para stdout
+  mov x0, #1           // Descritor de arquivo para stdout
   sub x1, x2, buffer   // Calcula o número de caracteres armazenados no buffer
   ldr x2, =buffer_Len  // Aponta para o início do buffer
   mov x8, #64          // Syscall write

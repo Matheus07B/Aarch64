@@ -1,8 +1,9 @@
+.global _start
+
 .section .data
    msg: .asciz "ola\n"  // Adiciona uma nova linha para melhor visualização
 
 .section .text
-  .global _start
 
 _start:
     mov x7, #0xA       // numero de vezes a se repitir o loop
@@ -26,13 +27,13 @@ print:
     ldr x1, =msg     // carrega o endereco "Buffer" da mensagem
     mov x2, #4       // tamanho da String, 4 bits
     mov x8, #64      // write, codigo de escrita
-    svc 0            // chamada do kernel para executar a instrucao
+    svc 0            // chamada do sistema para executar a instrucao
     ret              // retorna a funcao
 
 exit:
     // Código após o loop (fim do programa)
     mov x0, #0       //
     mov x8, #93      // sys_exit, codigo de saida 93
-    svc 0            // chamada do kernel
+    svc 0            // chamada do sistema
     ret
 
