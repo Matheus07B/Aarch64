@@ -19,11 +19,8 @@
   num2_len = . - num2
   num2Value: .skip 100
 
-  Resultado: .ascii "\nResultado: "
+  Resultado: .ascii "\nResultado:  "
   Resultado_len = . - Resultado
-
-  blackSpace: .asciz " "
-
   ResultadoValor: .space 100
   ResultadoValor_len = . - ResultadoValor
 
@@ -89,7 +86,6 @@ _start:
   mov x1, #0
   b Conversao1
 
-// Conversão do primeiro número
 Conversao1:
   // Carrega o caractere atual
   ldrb w2, [x0]  // Use ldrb para carregar apenas 1 byte
@@ -131,7 +127,6 @@ fim_loop1:
   mov x1, #0
   b Conversao2
 
-// Conversão do segundo número
 Conversao2:
   // Carrega o caractere atual
   ldrb w2, [x0]  // Use ldrb para carregar apenas 1 byte
@@ -182,25 +177,23 @@ convert_to_string:
   b convert_to_string
 
 print_number:
+  mov x0, 1                        // Descritor de arquivo para stdout
+  sub x10, x2, ResultadoValor      // Calcula o número de caracteres armazenados no buffer
+  ldr x2, =ResultadoValor_len  // Aponta para o início do buffer
+  mov x8, 64                       // Syscall write
+  svc 0                            // chamada do sistema
+
   mov x0, 1
   ldr x1, =Resultado
   ldr x2, =Resultado_len
   mov x8, 64
   svc 0
 
-  mov x0, 1                     // Descritor de arquivo para stdout
-  sub x10, x2, ResultadoValor   // Calcula o número de caracteres armazenados no buffer
-  ldr x2, =ResultadoValor_len   // Aponta para o início do buffer
-  mov x8, 64                    // Syscall write
-  svc 0                         // chamada do sistema
-
   mov x0, 1
   ldr x1, =newLine
   ldr x2, =newLine_len
   mov x8, 64
   svc 0
-
-  b exit
 
 exit:
   mov x0, 0
