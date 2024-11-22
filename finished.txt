@@ -1,8 +1,17 @@
 
+Basicos:
  print      [✓]
  input      [✓]
  whileTrue  [✓]
  for        [✓]
- soma       [ ]
- conversão  [✓]
+
+Operações matemáticas:
+ soma          [✓]
+ Subtração     [✓]
+ Multiplicação [✓]
+ Divisão       [✓]
+ 
+Conversões:
+  String -> Inteiro [✓]
+  Inteiro -> String [✓]
 
