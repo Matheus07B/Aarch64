@@ -15,3 +15,5 @@ Conversões:
   String -> Inteiro [✓]
   Inteiro -> String [✓]
 
+Condiçionais:
+  If, else if, else [✓]
