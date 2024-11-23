@@ -12,8 +12,14 @@ Operações matemáticas:
  Divisão       [✓]
  
 Conversões:
-  String -> Inteiro [✓]
-  Inteiro -> String [✓]
+
+  Tipos De dados:
+    String -> Inteiro [✓]
+    Inteiro -> String [✓]
+
+  Temperatura:
+    Celcius -> Fahrenheint [✓]
 
 Condiçionais:
   If, else if, else [✓]
+
