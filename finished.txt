@@ -23,3 +23,6 @@ Conversões:
 Condiçionais:
   If, else if, else [✓]
 
+Calculador de tamanho:
+  Tamanho de uma String [✓]
+
