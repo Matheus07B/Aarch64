@@ -262,7 +262,7 @@ print_number:
   svc 0
 
   mov x0, 1                     // Descritor de arquivo para stdout
-  sub x10, x2, ResultadoValor   // Calcula o número de caracteres armazenados no buffer
+  sub x1, x2, ResultadoValor   // Calcula o número de caracteres armazenados no buffer
   ldr x2, =ResultadoValor_len   // Aponta para o início do buffer
   mov x8, 64                    // Syscall write
   svc 0                         // chamada do sistema
